@@ -51,3 +51,14 @@ spec:
         syncOptions:
         - CreateNamespace=false
         - PruneLast=true
+---
+apiVersion: cluster.open-cluster-management.io/v1beta1
+kind: Placement
+metadata:
+  name: ocp-cert-manager-operator-placement
+  namespace: openshift-gitops
+spec:
+  clusterSets:
+  - default
+
+
