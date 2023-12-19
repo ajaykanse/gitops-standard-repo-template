@@ -1,0 +1,53 @@
+apiVersion: argoproj.io/v1alpha1
+kind: ApplicationSet
+metadata:
+  annotations:
+    argocd.argoproj.io/compare-options: IgnoreExtraneous
+  name: openshift-cert-manager-operator
+  namespace: openshift-gitops
+spec:
+  generators:
+  - clusterDecisionResource:
+      configMapRef: acm-placement
+      labelSelector:
+        matchLabels:
+          cluster.open-cluster-management.io/placement: ocp-cert-manager-placement
+      requeueAfterSeconds: 180
+  template:
+    metadata:
+      annotations:
+        app.kubernetes.io/instance: '{{name}}'
+        argocd.argoproj.io/compare-options: IgnoreExtraneous
+      labels:
+        velero.io/exclude-from-backup: "true"
+      name: '{{name}}'
+    spec:
+      destination:
+        namespace: openshift-gitops
+        server: '{{server}}'
+      project: default
+      sources:
+      - helm:
+          releaseName: ocp-cert-manager-operator
+          valueFiles:
+          - values.yaml
+          parameters:
+          - name: version
+            value: "v1.10.3"
+          - name: approval
+            value: "Automatic"
+        path: components/ocp-cert-manager-operator/ocp-cert-manager
+        repoURL: https://github.com/ajaykanse/gitops-standard-repo-template.git
+      # - helm:
+      #     releaseName: david-test
+      #     valueFiles:
+      #     - values.yaml
+      #   path: charts/david-test2
+      #   repoURL: git@gitlab.com:ddreggors-openshift/ocp-post-install-charts.git
+      syncPolicy:
+        automated:
+          prune: true
+          selfHeal: true
+        syncOptions:
+        - CreateNamespace=false
+        - PruneLast=true
