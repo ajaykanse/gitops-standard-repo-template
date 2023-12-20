@@ -55,7 +55,7 @@ spec:
 apiVersion: cluster.open-cluster-management.io/v1beta1
 kind: Placement
 metadata:
-  name: ocp-cert-manager-operator-placement
+  name: ocp-cert-manager-placement
   namespace: openshift-gitops
 spec:
   clusterSets:
