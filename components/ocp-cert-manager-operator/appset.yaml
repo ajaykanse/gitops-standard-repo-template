@@ -38,6 +38,7 @@ spec:
             value: "Automatic"
         path: components/ocp-cert-manager-operator/ocp-cert-manager
         repoURL: https://github.com/ajaykanse/gitops-standard-repo-template.git
+        taregtRevision: acm
       # - helm:
       #     releaseName: david-test
       #     valueFiles:
