@@ -1,0 +1,12 @@
+apiVersion: operators.coreos.com/v1alpha1
+kind: Subscription
+metadata:
+  name: gitlab-runner-operator
+  namespace: openshift-operators
+spec:
+  channel: stable
+  installPlanApproval: {{ .Values.approval }}
+  name: gitlab-runner-operator
+  source: certified-operators
+  sourceNamespace: openshift-marketplace
+  startingCSV: gitlab-runner-operator.{{ .Values.version }}

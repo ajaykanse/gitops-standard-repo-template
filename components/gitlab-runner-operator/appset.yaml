@@ -60,5 +60,3 @@ metadata:
 spec:
   clusterSets:
   - default
-
-
