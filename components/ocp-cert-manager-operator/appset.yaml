@@ -50,7 +50,7 @@ spec:
           prune: true
           selfHeal: true
         syncOptions:
-        - CreateNamespace=false
+        - CreateNamespace=true
         - PruneLast=true
 ---
 apiVersion: cluster.open-cluster-management.io/v1beta1
