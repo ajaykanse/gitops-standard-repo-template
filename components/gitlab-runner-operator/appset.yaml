@@ -33,11 +33,12 @@ spec:
           - values.yaml
           parameters:
           - name: version
-            value: "v1.10.3"
+            value: "v1.20.0"
           - name: approval
             value: "Automatic"
         path: components/gitlab-runner-operator/gitlab-runner-operator
         repoURL: https://github.com/ajaykanse/gitops-standard-repo-template.git
+        targetRevision: acm
       # - helm:
       #     releaseName: david-test
       #     valueFiles:
@@ -59,4 +60,4 @@ metadata:
   namespace: openshift-gitops
 spec:
   clusterSets:
-  - default
+  - production
