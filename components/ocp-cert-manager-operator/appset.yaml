@@ -27,6 +27,7 @@ spec:
         server: '{{server}}'
       project: default
     # in ocp 4.14 multiple sources can be added ( see gitlab operator appset)
+    # Due to this u cant see app details link in ACM UI
       source:
         helm:
           releaseName: ocp-cert-manager-operator
