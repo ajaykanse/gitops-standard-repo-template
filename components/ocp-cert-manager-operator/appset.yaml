@@ -26,8 +26,9 @@ spec:
         namespace: openshift-gitops
         server: '{{server}}'
       project: default
-      sources:
-      - helm:
+    # in ocp 4.14 multiple sources can be added ( see gitlab operator appset)
+      source:
+        helm:
           releaseName: ocp-cert-manager-operator
           valueFiles:
           - values.yaml
