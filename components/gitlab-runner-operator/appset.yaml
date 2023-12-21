@@ -20,7 +20,7 @@ spec:
         argocd.argoproj.io/compare-options: IgnoreExtraneous
       labels:
         velero.io/exclude-from-backup: "true"
-      name: '{{name}}'
+      name: '{{name}}-gitlab-runner-operator'
     spec:
       destination:
         namespace: openshift-gitops
