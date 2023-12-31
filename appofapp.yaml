@@ -9,7 +9,7 @@ spec:
   project: default
   source:
     path: components/gitlab-runner-operator
-    repoURL: https://github.com/ajaykanse/control-plane
+    repoURL: https://github.com/ajaykanse/gitops-standard-repo-template.git
     directory:
       recurse: true
   syncPolicy:
