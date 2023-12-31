@@ -12,6 +12,6 @@ spec:
     repoURL: https://github.com/ajaykanse/gitops-standard-repo-template.git
     targetRevision: acm
     directory:
-      recurse: true
+      recurse: false
   syncPolicy:
     automated: {}
