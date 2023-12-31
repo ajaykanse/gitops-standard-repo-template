@@ -10,6 +10,7 @@ spec:
   source:
     path: components/gitlab-runner-operator
     repoURL: https://github.com/ajaykanse/gitops-standard-repo-template.git
+    targetRevision: acm
     directory:
       recurse: true
   syncPolicy:
