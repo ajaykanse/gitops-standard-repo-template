@@ -40,4 +40,4 @@ applications:
     destination:
       namespace: openshift-operators
     source:
-      path: groups/production/overlays/gitlab-runner-operator
+      path: groups/development/overlays/gitlab-runner-operator
