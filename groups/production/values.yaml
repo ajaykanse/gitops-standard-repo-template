@@ -1,0 +1,43 @@
+default:
+  app:
+    enabled: true
+    enableAutoSync: true
+    autoSyncPrune: false
+    project: cluster-config
+    labels:
+      app-source: group-prod
+      repo: cluster-config
+    destination:
+      namespace: openshift-gitops
+      server: ttps://api.cluster1.sandbox2894.opentlc.com:6443
+    source:
+      repoURL: https://github.com/ajaykanse/gitops-standard-repo-template.git
+      targetRevision: acm-test
+    syncOptions:
+    - ApplyOutOfSyncOnly=true
+    - PrunePropagationPolicy=foreground
+    - PruneLast=true
+    - ServerSideApply=true  
+    - FailOnSharedResource=true
+    - RespectIgnoreDifferences=true
+    - CreateNamespace=false      
+
+applications:
+
+  # vault-config-operator:
+  #   annotations:
+  #     argocd.argoproj.io/compare-options: IgnoreExtraneous
+  #     argocd.argoproj.io/sync-wave: '5'
+  #   destination:
+  #     namespace: cert-manager
+  #   source:
+  #     path: groups/prod/overlays/vault-config-operator
+  
+  ocp-cert-manager-operator:
+    annotations:
+      argocd.argoproj.io/compare-options: IgnoreExtraneous
+      argocd.argoproj.io/sync-wave: '5'
+    destination:
+      namespace: cert-manager-operator
+    source:
+      path: groups/production/overlays/ocp-cert-manager-operator
