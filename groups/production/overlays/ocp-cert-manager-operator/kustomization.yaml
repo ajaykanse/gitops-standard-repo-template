@@ -13,6 +13,6 @@ patches:
   - patch: |-
       - op: replace
         path: /spec/startingCSV
-        value: cert-manager-operator.v1.12
+        value: cert-manager-operator.v1.12.1
     target:
       kind: Subscription 
