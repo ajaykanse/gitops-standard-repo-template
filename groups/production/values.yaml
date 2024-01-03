@@ -3,13 +3,13 @@ default:
     enabled: true
     enableAutoSync: true
     autoSyncPrune: false
-    project: cluster-config
+    project: default
     labels:
       app-source: group-prod
       repo: cluster-config
     destination:
       namespace: openshift-gitops
-      server: ttps://api.cluster1.sandbox2894.opentlc.com:6443
+      server: https://api.cluster1.sandbox2894.opentlc.com:6443
     source:
       repoURL: https://github.com/ajaykanse/gitops-standard-repo-template.git
       targetRevision: acm-test
