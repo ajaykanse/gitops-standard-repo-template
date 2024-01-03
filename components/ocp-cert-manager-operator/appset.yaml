@@ -62,6 +62,6 @@ metadata:
   namespace: openshift-gitops
 spec:
   clusterSets:
-  - acm-pilot
+  - production
 
 
